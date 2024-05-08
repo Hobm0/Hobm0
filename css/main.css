@@ -1,0 +1,774 @@
+html{
+	overflow: hidden !important;
+}
+*{
+	padding: 0;
+	margin: 0;
+}
+
+.bg{
+background-image: url(../img/bg.jpg);
+/* background-image: url(https://v2.api-m.com/api/random4kPic?type=wallpaper); */
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	background-position: center;
+	top: 0; left: 0;
+	position: absolute;
+	z-index: -1;
+	transition: all 1s;
+	height: 100%;
+	width: 100%;
+}
+.blurred{
+	filter: blur(5px);
+}
+.main{
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 0;
+}
+
+.currentTime{
+	font-size: 60px;
+	font-weight: 200;
+	color: white;
+	text-align: center;
+	margin-top: 150px;
+	transition: all 0.5s;
+}
+
+.search{
+	
+	justify-content: center;
+	align-items: center;
+	display: flex;
+}
+.search .search_container{
+	display: flex;
+	width: 100%;
+	margin: 0 auto;
+	justify-content: center;
+	align-items: center;
+}
+.search_input{
+	outline-style: none;
+	border: none;
+	border:solid 1px rgba(255, 255, 255, 0.5);
+	border-radius: 0px 0px 0px 0px;
+	padding: 6px 20px 6px 20px;
+	
+	font-size: 20px;
+	font-family: "microsoft yahei";
+	color: white;
+	font-weight: lighter;
+	
+	
+	
+	height: 36px;
+	width: 600px;
+	background-color: rgba(255,255,255,0.4);
+	transition: all 0.5s;
+}
+
+
+.search_input:hover{
+	background-color: rgba(255, 255, 255, 0.4);
+	color: #ffffff;
+	box-shadow: 0px 0px 12px #ffffff;
+	transition: all 0.5s;
+}
+.search_input:focus{
+	background-color: rgba(255, 255, 255, 0.4);
+	color: #ffffff;
+	box-shadow: 0px 0px 12px #ffffff;
+	transition: all 0.5s;
+}
+
+.search_button{
+	transform: translateX(-1px);
+	margin: 0px;
+	height: 50px;
+	width: 100px;
+	border: 1px solid rgba(255, 255, 255, 0.5);
+	border-radius: 0px 25px 25px 0px;
+	background-color: rgba(255, 255, 255, 0.4);
+	color: white;
+	font-size: 18px;
+	font-weight: 200;
+	transition: all 0.5s;
+}
+.search_button:hover{
+	background-color: rgba(255, 255, 255, 0.4);
+	color: #ffffff;
+	box-shadow: 0px 0px 12px #ffffff;
+	transition: all 0.5s;
+}
+
+.buttons{
+	justify-content: center;
+	align-items: center;
+	display: flex;
+}
+.button_daohang{
+	margin-top: 150px;
+	margin-right: 15px;
+	margin-left: 15px;
+	height: 50px;
+	width: 80px;
+	border: 1px solid rgba(255, 255, 255, 0.5);
+	border-radius: 25px;
+	background-color: rgba(255, 255, 255, 0.4);
+	color: white;
+	font-size: 16px;
+	font-family: "microsoft yahei";
+	font-weight: 50;
+	transition: all 0.5s;
+	font-weight: bold;
+}
+.button_daohang:hover{
+	background-color: rgba(255, 255, 255, 0.4);
+	color: #ffffff;
+	box-shadow: 0px 0px 12px #ffffff;
+	height: 60px;
+	width: 100px;
+	border-radius: 30px;
+	font-size: 22px;
+	transition: all 0.5s;
+}
+
+.slogan{
+	width: 100%;
+	height: 26px;
+	left: 0px;
+	bottom: 150px;
+	/* box-shadow: 0px 0px 12px #ffffff; */
+	position: absolute;
+}
+.slogan2{
+	text-align: center;
+	color: #FFFFFF;
+	transition: all 0.5s;
+}
+.slogan2:hover{
+	text-shadow: 0px 0px 20px #ffffff;
+	transition: all 0.5s;
+}
+.footer{
+	width: 100%;
+	color: rgba(255,255,255,0.6);
+	font-size: 10px;
+	text-align: center;
+	position: absolute;
+	bottom: 5px;
+}
+
+.engineSelector{
+	transform: translateX(1px);
+	margin: 0px;
+	height: 50px;
+	width: 50px;
+	border: 1px solid rgba(255, 255, 255, 0.5);
+	border-radius: 25px 0px 0px 25px;
+	background-color: rgba(255, 255, 255, 0.4);
+	color: white;
+	font-size: 18px;
+	font-weight: 200;
+	transition: all 0.5s;
+	appearance: none;
+	text-align: center;
+}
+.engineSelector:focus {
+	color: skyblue;
+	text-align: center;
+  }
+
+#menuBtn{
+	position: absolute;
+	top: 0;
+	right: 60px;
+	width: 50px;
+	height: 50px;
+}
+#setBtn{
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 50px;
+	height: 50px;
+}
+#menuPanel,#settingPanel{
+	display: none;
+	background-color: transparent;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	z-index: 1;
+	align-items: center;
+	text-align: center;
+	font-size: 2em;
+	color: white;
+}
+
+#menuPanel>span{
+	position: absolute;
+top: 10%;
+left: 50%;
+width: 200px;
+margin-left: -100px;
+}
+
+
+.itemContainer {
+	width: 100%;
+	height: 100%;
+	line-height: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	
+  }
+  .centerBox{
+	width: 100%;
+
+}
+
+  .row{
+	display: flex;
+	align-items: center;
+	height: 110px;
+	justify-content: center;
+}
+
+.centerBox .row:last-child {
+	padding-bottom: 0;
+}
+  .item {
+	display: flex;
+	justify-content: center;
+align-items: center;
+
+  }
+
+a{
+	text-decoration: none;
+	color: white;
+}
+a>img{
+	height: 90px;
+}
+a>div{
+	font-size: 0.5em;
+}
+  
+
+  
+
+#settingPanel select {
+	background-color: rgba(255,255,255,0.2);
+	border: none;
+	outline: none;
+	appearance: none;
+	width: 60px;
+	height: 50px;
+	background-color: transparent;
+	color: white;
+	font-size: 1em;
+	display: inline-block;
+
+  }
+  #settingPanel select:focus {
+	color: skyblue;
+  }
+#exitMenuBtn,#exitSettingBtn{
+	width: 50px;
+	position: absolute;
+	float: right;
+	right: 0;
+	top: 0;
+	z-index: 1;
+	
+}
+
+/* 菜单退出按钮颜色 */
+#exitBtn path {
+	fill: white; 
+	}
+
+	  /* .setItem1 input[type="file"]{
+
+		border: none;
+		appearance: none;
+		background: none;
+		background-color: transparent;
+		display: inline-block;
+	  } */
+	  .imgUloadBtn{
+		width: 140px;
+		height: 40px;
+/* display: inline-block;
+display: flex; */
+display: inline;
+	  }
+	  .imgUloadBtn span{
+float: left;
+top: 0;
+left: 0;
+background-color: rgba(255, 255, 255, 0.2);;
+width: 140px;
+height: 40px;
+line-height: 40px;
+cursor: default;
+z-index: 0;
+font-size: 1em;
+border: solid 1px rgba(255, 255, 255, 0.4);
+border-radius: 25px;
+text-align: center;
+	  }
+	.setItem{
+		margin-top: 20px;
+		margin-bottom: 20px;
+		display: flex;
+		align-items: center;
+	  justify-content: center;
+	}
+.setItem input[type=text]{
+	border: none;
+	background-color: rgba(255,255,255,0.4);
+	height: 30px;
+	border-radius: 15px;
+	font-size: 1em;
+	width: 300px;
+	text-indent: 0.4em;
+}
+.setItem span{
+	background-color: rgba(255, 255, 255, 0.2);
+    width: 140px;
+    height: 40px;
+    line-height: 40px;
+    cursor: default;
+    font-size: 1em;
+    border: solid 1px rgba(255, 255, 255, 0.4);
+    border-radius: 25px;
+	margin-left: 20px;
+}
+
+	.setItem1 {
+		/* 在这里添加您想要设置的样式 */
+		margin-top: 60px;
+	
+	  }
+.uploadInput{
+	background-color: pink;
+	width: 140px;
+	height: 100%;
+	opacity: 1;
+	/* margin-left: -100%; */
+	z-index: 1;
+}
+
+
+  
+
+
+  
+
+
+
+@media screen and (min-width: 768px){
+		.item {
+		  width: 110px;
+		  height: 110px;
+		  margin-right: 40px;
+		}
+		.centerBox{
+			height: 370px;
+		
+		}
+		.row{
+			padding-bottom: 40px;
+		}
+	
+		#settingPanel select{
+			font-size: 1em;
+			width: auto;
+		}
+	  }
+	  
+
+	  @media screen and (max-width: 767px){
+		.item {
+		  width: 70px;
+		  height: 70px;
+		  /* margin-right: 20px; */
+	
+		}
+		.item>a>img{
+			width: 50px;
+			height: 50px;
+		}
+.item>a>div{
+	font-size: 0.4em;
+}
+		.centerBox{
+			height: 410px;
+		
+		}
+		.row{
+			padding-bottom: 40px;
+		}
+
+	
+		.search_input{
+			width: 50%;
+		}
+
+		.engineSelector{
+			width: 40px;
+		}
+
+		.search_button{
+			width: 50px;
+		}
+		#menuBtn,#setBtn{
+			width: 40px;
+			height: 40px;
+		}
+
+		#menuBtn{
+			right: 40px;
+		}
+		.button_daohang{
+			margin-top: 80px;
+			margin-right: 0;
+			margin-left: 3px;
+			height: 35px;
+			width: 90px;
+		}
+		.currentTime{
+			font-size: 40px;
+		}
+		.button_daohang:hover{
+			height: 40px;
+			width: 100px;
+		}
+		#settingPanel{
+			font-size: 1.2em;
+		}
+
+		.setItem>span{
+			height: 50px;
+			line-height: 50px;
+		}
+
+	  }
+
+
+	.login_Panel{
+		/* display: none; */
+		background-color: transparent;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		z-index: 10;
+		display: flex;
+		justify-content: center;
+		display: none;
+		
+	}
+
+
+
+	.login,.createPanel {
+		position: relative;
+		margin: 0 auto;
+	height: 300px;
+		/* 弹性布局 让子元素称为弹性项目 */
+		/* display: none; */
+		display: flex;
+		/* 让弹性项目垂直排列 原理是改变弹性盒子的主轴方向 父元素就是弹性盒子 现在改变后的主轴方向是向下了 */
+		flex-direction: column;
+		/* 让弹性项目在交叉轴方向水平居中 现在主轴的方向是向下 交叉轴的方向是与主轴垂直 交叉轴的方向是向右 */
+		align-items: center;
+		
+		padding: 40px;
+		/* background-color: rgba(0, 0, 0, 0.2); */
+		background: linear-gradient(#141e30, #243b55);
+		box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
+	}
+	@media screen and (max-width: 767px) {
+		.login,.createPanel {
+			margin-top: 30%;
+			width: 70%;
+		}
+	}
+	@media screen and (min-width: 768px) {
+		.login,.createPanel {
+			margin-top: 6%;
+			width: 600px;
+		}
+	}
+	.login_Panel h2 {
+		color: #fff;
+		margin-bottom: 30px;
+	}
+	.login_Panel .login_box {
+		/* 相对定位 */
+		position: relative;
+		width: 100%;
+	}
+	.login_Panel .login_box input {
+		/* 清除input框自带的边框和轮廓 */
+		outline: none;
+		border: none;
+		width: 100%;
+		padding: 10px 0;
+		margin-bottom: 30px;
+		color: #fff;
+		font-size: 16px;
+		border-bottom: 1px solid #fff;
+		/* 背景颜色为透明色 */
+		background-color: transparent;
+	}
+	.login_Panel .login_box label {
+		position: absolute;
+		top: 0;
+		left: 0;
+		padding: 10px 0;
+		color: #fff;
+		/* 这个属性的默认值是auto 默认是这个元素可以被点击 但是如果我们写了none 就是这个元素不能被点击 , 就好像它可见但是不能用 可望而不可即 */
+		/* 这个就是两者的区别 */
+		pointer-events: none;
+		/* 加个过渡 */
+		transition: all 0.5s;
+	}
+	/* :focus 选择器是当input获得焦点是触发的样式 + 是相邻兄弟选择器 去找与input相邻的兄弟label */
+	/* :valid 选择器是判断input框的内容是否合法,如果合法会执行下面的属性代码,不合法就不会执行,我们刚开始写布局的时候给input框写了required 我们删掉看对比 当没有required的话input框的值就会被认为一直合法,所以一直都是下方的样式 ,但是密码不会,密码框内的值为空,那么这句话局不合法,required不能为空 当我们给密码框写点东西的时候才会执行以下代码*/
+	.login_Panel .login_box input:focus + label,
+	.login_Panel .login_box input:valid + label {
+		top: -20px;
+		color: #03e9f4;
+		font-size: 12px;
+	}
+	.loginBtns{
+		position: relative;
+	  display: flex;
+	  justify-content: center;
+	  width: 100%;
+	padding-bottom: 40px;
+	}
+	
+	.login_Panel button {
+		
+	
+		overflow: hidden;
+		position: absolute;
+		padding: 10px 20px;
+		color: #03e9f4;
+		text-decoration: none;
+		transition: all 0.5s;
+		border: none;
+		background-color: transparent;
+	}
+	.loginBtns button:first-child {
+		left: 20%;
+	  }
+	  
+	  .loginBtns button:last-child {
+		right: 20%;
+	  }
+	
+	.login_Panel .loginBtns button:hover {
+		color: #fff;
+		border-radius: 5px;
+		background-color: #03e9f4;
+		box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4,
+			0 0 100px #03e9f4;
+	}
+	.login_Panel button span {
+		position: absolute;
+	}
+	.login button span:first-child {
+		top: 0;
+		left: -100%;
+		width: 100%;
+		height: 2px;
+		/* to right 就是往右边 下面的同理 */
+		background: linear-gradient(to right, transparent, #03e9f4);
+		/* 动画 名称 时长 linear是匀速运动 infinite是无限次运动 */
+		animation: move1 1s linear infinite;
+	}
+	.login button span:nth-child(2) {
+		right: 0;
+		top: -100%;
+		width: 2px;
+		height: 100%;
+		background: linear-gradient(transparent, #03e9f4);
+		/* 这里多了个0.25s其实是延迟时间 */
+		animation: move2 1s linear 0.25s infinite;
+	}
+	.login button span:nth-child(3) {
+		right: -100%;
+		bottom: 0;
+		width: 100%;
+		height: 2px;
+		background: linear-gradient(to left, transparent, #03e9f4);
+		animation: move3 1s linear 0.5s infinite;
+	}
+	.login button span:last-child {
+		left: 0;
+		bottom: -100%;
+		width: 2px;
+		height: 100%;
+		background: linear-gradient(#03e9f4, transparent);
+		animation: move4 1s linear 0.75s infinite;
+	}
+	
+	.rememberPassword{
+		position: relative;
+		width: 100%;
+		height: 30px;
+	color: white;
+	font-size: 0.7em;
+	}
+	.closeBtn{
+		position: absolute;
+		top: 0;
+		right: 0;
+	  }
+	  .closeBtn:hover{
+		color: #fff;
+	  }
+	  #typeSelector{
+		position: relative ;
+	width: 100px;
+	padding: 10px 0;
+	color: #fff;
+	font-size: 1em;
+	border-bottom: 1px solid #fff;
+	left: 0;
+	
+	  }
+	
+	/* 写一下动画 再坚持一下 视频马上就完了 */
+	@keyframes move1 {
+		0% {
+			left: -100%;
+		}
+		50%,
+		100% {
+			left: 100%;
+		}
+	}
+	@keyframes move2 {
+		0% {
+			top: -100%;
+		}
+		50%,
+		100% {
+			top: 100%;
+		}
+	}
+	@keyframes move3 {
+		0% {
+			right: -100%;
+		}
+		50%,
+		100% {
+			right: 100%;
+		}
+	}
+	@keyframes move4 {
+		0% {
+			bottom: -100%;
+		}
+		50%,
+		100% {
+			bottom: 100%;
+		}
+	}
+	
+
+
+
+
+	.switch-box {
+		position: relative;
+		display: inline-block;
+	  }
+	  [type=checkbox] {
+		width: 60px;
+		height: 25px;
+		position: absolute;
+		top: 0;
+		left: 0;
+		opacity: 0;
+		margin: 0;
+		z-index: 1;
+		cursor: pointer;
+	  }
+	  /* switch */
+	  .switch {
+		width: 60px;
+		height: 25px;
+		border-radius: 45px;
+		background-color: #ffe09d;
+		display: flex;
+		padding: 6px;
+		align-items: center;
+		transition: background-color 0.3s ease;
+	  }
+	  /* siwtch-圆样式及动画设置 */
+	  .switch::before {
+		content: '';
+		width: 25px;
+		height: 25px;
+
+		border-radius: 80px;
+		background-color: #fff;
+		/* background-image: url('./img/sun-icon.svg');
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: 60px auto; */
+		transition: all 0.3s ease;
+		position: relative;
+		margin-left: 0;
+		box-shadow: 2px 4px 10px -2px rgba(227, 193, 120, 0.9);
+	  }
+	  
+	  /* checked时颜色变化 */
+	  [type=checkbox]:checked + .switch {
+		background-color: #1f1f1f;
+	  }
+	  /* checked时圆的位置变化 */
+	  [type=checkbox]:checked +.switch::before {
+		margin-left: 34px;
+		background-color: #313131;
+		/* background-image: url('./img/moon-icon.svg'); */
+		box-shadow: -2px 4px 10px -2px #000;
+	  }
+	  /* 圆圈长按时添加形变类:circie-screw, ps: 此时未checked */
+	  .switch.circle-screw::before {
+		width: 98px;
+	  }
+	  /* unchecked时长按效果, 达到 */
+	  [type=checkbox]:checked + .switch.circle-screw::before {
+		width: 98px;
+		margin-left: 72px;
+	  }
+
+
+
+
+
+
+
+
+
+
