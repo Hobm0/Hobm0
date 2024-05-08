@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang='zh-cn'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <link rel="shortcut icon" href="img/logo.jpg"> 
+  <link rel='stylesheet' href='iconfont/iconfont.css'>
+  <!-- <link rel="stylesheet" href="css/animate.min.css"> -->
+  <link rel='stylesheet' href='css/index.css'>
+  <title>Hobgoblin</title>
+
+</head>
+
+<body>
+
+
+  <div class='main'>
+ 
+  
+
+ 
+  <img src="img/menu-black.png" class="menuBtn" onclick='showOrHidePanel("settingPanel")'>
+  <!-- <i class='iconfont icon-menu menuBtn' onclick='showOrHidePanel("settingPanel")' ></i> -->
+    <span class='currentTime'>00:00:00</span>
+   
+    <div class="searchBox">
+        <input placeholder='请输入内容' type='text' class='search_input'  onkeydown='search2(event)'>
+      <div class="prompt"></div>
+    </div>
+
+ <div class="box">
+  <div class='bottomNav'>
+    <div class='bottomNavContainer'>
+
+
+    </div>
+
+
+
+  </div>
+ <div class='slogan'>
+    <p class='sloganText' onclick='loadYiYan()'>
+      你，对，你，就是你，你是你。&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+      <p class="sloganFrom">——什</p>
+  </div>
+
+ </div>
+
+
+
+  
+  </div>
+
+ 
+
+  <div class='functionPanel' style="display: none;">
+<div class="functionContainer">
+  <div class='functionTitle'>
+    <!-- <img src="img/mine.png" style="height: 80px;"> -->
+    <!-- <i class="iconfont icon-refresh refreshBtn" onclick="RefreshUIData()"></i>
+    <i class='iconfont icon-close closeBtn' onclick='showOrHidePanel("functionPanel")' ></i> -->
+<span class="mysites">My sites
+  <img src="img/refresh-black.png" class="refreshBtn" onclick="RefreshUIData()">
+</span>
+
+ 
+<img src="img/close-black.png" class="closeBtn" onclick='showOrHidePanel("functionPanel")' >
+  </div>
+  <div class='functionItemContainer'>
+    
+   
+
+  </div>
+
+</div>
+
+ 
+  </div>
+
+
+
+  <div class='loginPanel' style="display: none;">
+
+    <div class='login_Container'>
+      <!-- <i class='iconfont icon-close closeBtn ' onclick='showOrHidePanel("loginPanel")'></i> -->
+     <img src="img/close-black.png" class="closeBtn" onclick='showOrHidePanel("loginPanel")'>
+      <!-- <span class='login_title' state="false">  -->
+        <img src="img/Login.png" style="height: 100px;">
+      <!-- </span> -->
+      <input type='password' class='repo_input' placeholder='Repo'>
+      <div class="inputBox">
+<input type="password" name="" class="str1">
+<input type="password" name="" class="str2">
+<input type="password" name="" class="str3">
+<input type="password" name="" class="str4">
+      </div>
+      <!-- <input type="text" class="token1_input" > -->
+      <!-- <input type='password' class='token_input' placeholder='Token'> -->
+      <div class='login_swich'>
+        <input type='checkbox' id='rememberPassword'>
+        <label class='form-check-label' for='rememberPassword'>记住密码</label>
+      </div>
+      <button onclick='Log_in()'>登录</button>
+      <button onclick='Log_out()'>登出</button>
+    </div>
+  </div>
+
+  <div class="settingPanel" style="display: none;">
+
+
+<div class="setting" >
+  <div class="settingTitle">setting
+    <!-- <i onclick="showOrHidePanel('settingPanel')" class="iconfont icon-close closeBtn"></i> -->
+ <img src="img/close-black.png" class="closeBtn" onclick="showOrHidePanel('settingPanel')"  >
+  </div>
+
+  <div class="settingBody">
+  <div class="settingItem">
+    <span>搜索引擎:</span>
+    <select class="engine_selector">
+      <option value='bing'>必应</option>
+      <option value='baidu'>百度</option>
+      <option value='sougou'>搜狗</option>
+      <option value='google'>谷歌</option>
+    </select>
+  </div>
+<div class="settingItem">
+  <span>提示词来源:</span>
+  <select  id="promptSelector">
+    <option value="Bing">必应</option>
+    <option value="Baidu">百度</option>
+    <!-- <option value="360">360</option> -->
+  </select>
+</div>
+<div class="settingItem mysite"  onclick='showOrHidePanel("functionPanel")'  style="display: none;">
+  站点
+  </div>
+
+
+
+
+
+
+  </div>
+
+  <div class="settingBottom"> 
+    <div class="settingItem" onclick="showOrHidePanel('loginPanel')">login</div>
+   
+    <div class="settingItem about">
+      about me
+    </div>
+    </div>
+
+
+
+</div>
+
+  </div>
+
+<div class="bg"></div>
+
+
+
+  <script src='js/main.js'></script>
+</body>
+
+</html>
