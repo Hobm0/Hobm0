@@ -1,0 +1,352 @@
+
+*{
+    padding: 0;
+    margin: 0;
+}
+body {
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+user-select: none;
+}
+h1{
+text-align: center;
+height: 50px;
+line-height: 50px;
+background: rgba(230, 235, 240, .6);
+border-bottom: solid 1px white;
+text-indent: 2em;
+}
+h1 img{
+float: right;
+margin-right: 10px;
+height: 40px;
+width: 40px;
+margin-top: 5px;
+}
+.popPanel img{
+height: 40px;
+width: 40px;
+}
+
+.categories  img{
+    width: 35px;
+    height: 35px;
+}
+.foreIcon{
+    width: 30px;
+    height: 30px;
+}
+
+
+.main,.popPanel{
+position: absolute;
+width: 100%;
+height: 100%;
+top: 0;
+
+}
+.main,.popPanel{
+background-image: url(../img/house.jpg);
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-size: cover;
+background-position: center;
+}
+
+.categories{
+width: 100%;
+max-height: 92%;
+overflow-y: auto; /* 添加滚动条 */
+     scrollbar-width: thin; /* 在支持的浏览器上隐藏默认的滚动条 */
+-ms-overflow-style: none;  /* 隐藏Internet Explorer和Edge浏览器的滚动条 */
+}
+.categories::-webkit-scrollbar {
+width: 0;  /* 隐藏滚动条 */
+}
+
+.categories::-webkit-scrollbar-thumb {
+background-color: transparent; /* 隐藏滚动条thumb（拖动条） */
+}
+.popPanel .box{
+width: 500px;
+height: 500px;
+margin: 0 auto;
+margin-top: 5%;
+background-color: rgba(50,50,50,.2);
+border: 1px solid rgba(255,255,255,.9);
+border-right: 1px solid rgba(255,255,255,.5);
+border-bottom: 0;
+border-radius: 20px;
+backdrop-filter: blur(6px);
+text-align: center;
+}
+.popPanel .box img{
+float: right;
+}
+.popPanel .box .selectBox .login-title{
+/* padding-top: 10%; */
+font-family:'Times New Roman', Times, serif;
+font-size: 1.5em;
+font-weight: bold;
+color: white;
+height: 30px;
+display: inline-block;
+}
+.popPanel .box select{
+appearance: none;
+background-color: transparent;
+border: none;
+height: 30px;
+line-height: 30px;
+text-align: left;
+font-size: 1em;
+color: white;
+}
+.popPanel .box select:focus{
+border: none;
+background-color: rgba(50,50,50,.2);
+}
+.popPanel .box .selectBox {
+    display: inline-block;
+    width: 100%;
+}
+.popPanel .box .selectBox label{
+color: white;
+display: inline-block;
+width: 120px;
+height: 30px;
+text-align: right;
+line-height: 30px;
+font-size: 1.5em;
+
+}
+.popPanel  .box .inputBox{
+border-bottom: 2px solid #fff;
+width: 70%;
+margin: 0 auto;
+margin-top: 40px;
+text-align: left;
+
+}
+.popPanel .box input{
+margin-top: 30px;
+background-color: transparent;
+border: none;
+outline: none;
+font-size: 1.2em;
+height: 30px;
+color: #fff;
+
+}
+.popPanel .box .inputBox label{
+display: inline-block;
+font-size: 1.5em;
+color: #fff;
+text-align: left;
+margin-bottom: 10px;
+font-weight: bold;
+}
+.popPanel .box button{
+width: 320px;
+height: 45px;
+border: none;
+background-color: rgba(135,100,78);
+border-radius: 40px;
+cursor: pointer;
+font-size: 1.5em;
+font-weight: 500;
+color: #fff;
+transition: .5s;
+margin-top: 60px;
+}
+
+
+
+details summary::-webkit-details-marker {
+display: none;
+}
+details summary {
+/* background-color: lightslategray; */
+background-color: rgba(128, 128, 128, 0.8); /* 灰色背景，透明度为 50% */
+list-style: none;
+cursor: pointer;
+display: flex;
+align-items: center;
+}
+details summary span{
+flex: 10;
+line-height: 40px;
+font-size: 1.5em;
+color: white;
+}
+a{
+    display: flex;
+    /* background-color: gray; */
+    background-color: rgba(51, 51, 51, 0.4); /* #333 的颜色，透明度为 50% */
+    color: white;
+    height: 40px;
+    line-height: 40px;
+    text-decoration: none;
+    align-items: center;
+}
+a span{
+    flex: 10;
+    text-indent: 1em;
+    white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+}
+a:hover{
+    color: white;
+    background-color: tomato;
+}
+.confirmPanel {
+position: absolute;
+background-color: red;
+width: 300px;
+height: 150px;
+top: 50%;
+left: 50%;
+margin-top: -75px; /* 高度的一半 */
+margin-left: -150px; /* 宽度的一半 */
+backdrop-filter: blur(18px);
+background: rgba(230, 235, 240, .7);
+border: 1px solid rgba(255,255,255,.9);
+border-right: 1px solid rgba(255,255,255,.5);
+border-bottom: 0;
+border-radius: 20px;
+display: flex;
+flex-direction: column; /* 设置为纵向布局 */
+align-items: center; /* 垂直居中 */
+padding-bottom: 30px;
+}
+.confirmPanel h3{
+flex: 3;
+align-items: center; /* 垂直居中 */
+justify-content: center; /* 水平居中 */
+text-align: center;
+padding-top: 20px;
+}
+.confirmPanel .btnsBox{
+display: flex;
+width: 70%;
+margin: 0 auto;
+justify-content: space-between; /* 左右对齐 */
+align-items: center; /* 垂直居中 */
+
+}
+.confirmPanel .btnsBox i{
+flex: 1;
+}
+.confirmPanel .btnsBox div{
+flex: 3;
+border: none;
+height: 30px;
+line-height: 30px;
+background-color: rgba(135,100,78);
+border-radius: 40px;
+font-weight: bold;
+text-align: center;
+}
+.confirmPanel .box{
+flex: 1;
+text-align: center;
+width: 70%;
+margin: 0 auto;
+border: none;
+height: 30px;
+line-height: 30px;
+background-color: rgba(135,100,78);
+border-radius: 40px;
+font-weight: bold;
+}
+
+
+.show{
+display: block;
+}
+.hide{
+display: none;
+}
+
+/* 提示 */
+/* 提示 */
+.alert{
+width: 40%;
+height: 50px;
+line-height: 50px;
+position: absolute;
+left: 30%;
+top: 3%;
+text-align: center;
+z-index: 10;
+font-size: 1.6em;
+border-radius: 8px;
+color: black;
+}
+.alert-success {
+background-color: lightgreen;
+}
+
+.alert-warning {
+background-color: tomato;
+}
+
+/* 当 data-layer 为 1 时的样式 */
+details[data-layer="1"] > summary {
+background: rgba(230, 235, 240, .6); 
+font-weight: bold;
+
+}
+details[data-layer="1"] > summary span{
+color: black;
+}
+
+@media screen and (max-width: 767px){
+a{
+    padding: 0 6px;
+    background-color: rgba(51, 51, 51, 0.7); 
+}
+.popPanel .box{
+width: 96%;
+height: 70%;
+margin-top: 25%;
+}
+.popPanel .box img{
+margin-top: 10px;
+margin-right: 10px;
+
+}
+.popPanel .box .inputBox {
+width: 96%;
+margin-top: 20px;
+}
+details[data-layer="1"] > summary {
+padding: 5px;
+
+}
+details summary {
+    padding: 0 15px;
+    text-indent: 1em;
+}
+h1 img{
+margin-right: 0;
+}
+}
+
+@media screen and (min-width: 768px){
+details[data-layer="1"] > summary {
+padding: 0 20px;
+
+
+}
+details summary {
+    padding: 0 40px;
+    text-indent: 1em;
+}
+a{
+    padding-left: 2em;
+    padding: 0 40px;
+}
+
+}
