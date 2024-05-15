@@ -592,3 +592,9 @@ else{
 }
 }
 
+// 获取按钮元素
+        var btn = document.getElementById("testBtn");
+// 添加点击事件
+        btn.addEventListener("click", function() {
+            console.log("按钮被点击了！");
+        });
