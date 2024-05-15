@@ -600,26 +600,26 @@ else{
 	// 打开新窗口
 			var newWindow = window.open("error.html", "_blank");
 			
-			// 替换新页面内容
-			newWindow.document.write(`
-				<!DOCTYPE html>
-				<html>
-				<head>
-				    <title>新页面内容</title>
-				</head>
-				<body>
-				    <button id="fft">test</button>
+			// // 替换新页面内容
+			// newWindow.document.write(`
+			// 	<!DOCTYPE html>
+			// 	<html>
+			// 	<head>
+			// 	    <title>新页面内容</title>
+			// 	</head>
+			// 	<body>
+			// 	    <button id="fft">test</button>
 
-				    <script>
-				        // 获取按钮元素
-				        var btn = document.getElementById("fft");
+			// 	    <script>
+			// 	        // 获取按钮元素
+			// 	        var btn = document.getElementById("fft");
 
-				        // 添加点击事件
-				        btn.addEventListener("click", function() {
-				            console.log("按钮被点击了！");
-				        });
-				    </script>
-				</body>
-				</html>
-			`);
+			// 	        // 添加点击事件
+			// 	        btn.addEventListener("click", function() {
+			// 	            console.log("按钮被点击了！");
+			// 	        });
+			// 	    </script>
+			// 	</body>
+			// 	</html>
+			// `);
         });
