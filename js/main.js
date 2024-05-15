@@ -514,6 +514,9 @@ data.bottomNav.forEach(function(item) {
 var functionItemContainer = document.querySelector('.functionItemContainer');
 // 创建元素
 data.functions.forEach(function(item) {
+	if(item.visible===false){
+		return
+	}
     var link = document.createElement('div');
     link.setAttribute('class', 'item');
     link.setAttribute('page', item.text);
@@ -610,6 +613,8 @@ else{
     showFailureAlert('请登录');
 }
 }
+
+
 
 
 
