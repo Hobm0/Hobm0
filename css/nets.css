@@ -46,11 +46,7 @@ top: 0;
 
 }
 .main,.popPanel{
-background-image: url(../img/house.jpg);
-background-repeat: no-repeat;
-background-attachment: fixed;
-background-size: cover;
-background-position: center;
+background-image: linear-gradient(to right, #868f96 0%, #596164 100%);
 }
 
 .categories{
