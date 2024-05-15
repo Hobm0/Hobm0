@@ -1,0 +1,490 @@
+
+*{
+    padding: 0;
+    margin: 0;
+}
+body {
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+user-select: none;
+}
+.topBox{
+    position: absolute;
+    right: 20px;
+    top: 0;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.topBox img{
+    width: 40px;
+    height: 40px;
+}
+h1{
+text-align: center;
+height: 50px;
+line-height: 50px;
+background: rgba(230, 235, 240, .6);
+border-bottom: solid 1px white;
+}
+
+.popPanel img{
+height: 40px;
+width: 40px;
+}
+
+.categories  img{
+    width: 35px;
+    height: 35px;
+}
+.foreIcon{
+    width: 30px;
+    height: 30px;
+}
+
+
+.main,.popPanel,.searchReasultPanel{
+    position: absolute;
+    top: 0;
+width: 100%;
+height: 100%;
+background-image: url(../img/house.jpg);
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-size: cover;
+background-position: center;
+overflow: hidden;
+}
+
+.categories{
+width: 100%;
+max-height: 92%;
+overflow-y: auto; /* 添加滚动条 */
+     scrollbar-width: thin; /* 在支持的浏览器上隐藏默认的滚动条 */
+-ms-overflow-style: none;  /* 隐藏Internet Explorer和Edge浏览器的滚动条 */
+}
+.categories::-webkit-scrollbar {
+width: 0;  /* 隐藏滚动条 */
+}
+
+.categories::-webkit-scrollbar-thumb {
+background-color: transparent; /* 隐藏滚动条thumb（拖动条） */
+}
+.popPanel{
+    z-index: 2;
+}
+.popPanel .box {
+    position: absolute;
+width: 100%;
+height: 100%;
+margin: 0 auto;
+background-color: rgba(50,50,50,.2);
+backdrop-filter: blur(6px);
+text-align: center;
+display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items: center;
+}
+.popPanel .box .closeBtn{
+    position: absolute;
+    top: 10px;
+    right: 20px;
+
+}
+
+.popPanel img{
+height: 40px;
+width: 40px;
+}
+
+.popPanel  .selectBox {
+    display: inline-block;
+}
+.popPanel  select{
+appearance: none;
+background-color: transparent;
+border: none;
+height: 30px;
+line-height: 30px;
+text-align: left;
+font-size: 1em;
+color: white;
+}
+.popPanel  select:focus{
+border: none;
+background-color: rgba(50,50,50,.2);
+}
+
+.popPanel  .titleBox{
+width: 95%;
+text-align: center;
+height: 40px;
+display: flex;
+color: white;
+background-color: rgba(50, 50, 50, .8);
+align-items: center;
+justify-content: center;
+position: relative; /* 添加position属性 */
+border-bottom: solid 1px white;
+padding: 0 15px;
+margin-top: 10px;
+}
+.popPanel  input{
+background-color: transparent;
+border: none;
+outline: none;
+font-size: 1.3em;
+height: 30px;
+width: 40%;
+color: #fff;
+text-align: left;
+
+}
+.popPanel  .titleBox label{
+display: inline-block;
+font-size: 1.5em;
+color: #fff;
+font-weight: bold;
+}
+
+
+.popPanel .titleBox .copy {
+    position: absolute; 
+    top: 50%; /* 调整copy按钮的垂直位置 */
+    right: 10px; /* 调整copy按钮的水平位置 */
+    transform: translateY(-50%); /* 使用transform属性保持按钮垂直居中 */
+}
+
+.popPanel  textarea {
+    width: 95%;
+    height: calc(75% - 10px); /* 调整textarea的高度，为了让空间给copy按钮留出来 */
+    /* border: solid 1px white; */
+    background-color: rgba(50, 50, 50, .8);
+    resize: none; /* 禁止调整大小 */
+    color: white;
+    text-indent: 2em;
+    font-size: 1.2em;
+    overflow-y: auto; /* 添加滚动条 */
+    padding: 0 15px;
+    line-height: 1.5; /* 调整行高使文本垂直居中 */
+letter-spacing: .1em;
+font-size: 1.5em;
+}
+
+.popPanel  textarea::-webkit-scrollbar {
+    width: 0;  /* 隐藏滚动条 */
+}
+
+.popPanel  textarea::-webkit-scrollbar-thumb {
+    background-color: transparent; /* 隐藏滚动条thumb（拖动条） */
+}
+
+.popPanel  button{
+width: 320px;
+height: 45px;
+border: none;
+background-color: rgba(135,100,78);
+border-radius: 40px;
+cursor: pointer;
+font-size: 1.5em;
+font-weight: 500;
+color: #fff;
+transition: .5s;
+margin-top: 10px;
+}
+
+
+
+details summary::-webkit-details-marker {
+display: none;
+}
+details summary {
+/* background-color: lightslategray; */
+background-color: rgba(128, 128, 128, 0.8); /* 灰色背景，透明度为 50% */
+list-style: none;
+cursor: pointer;
+display: flex;
+align-items: center;
+}
+details summary span{
+flex: 10;
+line-height: 40px;
+font-size: 1.5em;
+color: white;
+}
+details  ul>div{
+    display: flex;
+    /* background-color: gray; */
+    background-color: rgba(51, 51, 51, 0.4); /* #333 的颜色，透明度为 50% */
+    color: white;
+    height: 40px;
+    line-height: 40px;
+    text-decoration: none;
+    align-items: center;
+}
+details  ul>div span{
+    flex: 10;
+    text-indent: 1em;
+    white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+}
+details  ul>div:hover{
+    color: white;
+    background-color: tomato;
+}
+.confirmPanel{
+position: absolute;
+background-color: red;
+width: 300px;
+height: 150px;
+top: 50%;
+left: 50%;
+margin-top: -75px; /* 高度的一半 */
+margin-left: -150px; /* 宽度的一半 */
+backdrop-filter: blur(18px);
+background: rgba(230, 235, 240, .7);
+border: 1px solid rgba(255,255,255,.9);
+border-right: 1px solid rgba(255,255,255,.5);
+border-bottom: 0;
+border-radius: 20px;
+display: flex;
+flex-direction: column; /* 设置为纵向布局 */
+align-items: center; /* 垂直居中 */
+padding-bottom: 30px;
+z-index: 10;
+}
+.confirmPanel h3{
+flex: 3;
+align-items: center; /* 垂直居中 */
+justify-content: center; /* 水平居中 */
+text-align: center;
+padding-top: 20px;
+}
+.confirmPanel .btnsBox{
+display: flex;
+width: 70%;
+margin: 0 auto;
+justify-content: space-between; /* 左右对齐 */
+align-items: center; /* 垂直居中 */
+
+}
+.confirmPanel .btnsBox i{
+flex: 1;
+}
+.confirmPanel .btnsBox div{
+flex: 3;
+border: none;
+height: 30px;
+line-height: 30px;
+background-color: rgba(135,100,78);
+border-radius: 40px;
+font-weight: bold;
+text-align: center;
+}
+
+.confirmPanel .box div{
+    border: none;
+height: 30px;
+width: 120px;
+line-height: 30px;
+background-color: rgba(135,100,78);
+border-radius: 40px;
+font-weight: bold;
+text-align: center;
+}
+
+.show{
+display: block;
+}
+.hide{
+display: none;
+}
+
+/* 提示 */
+/* 提示 */
+.alert{
+width: 40%;
+height: 50px;
+line-height: 50px;
+position: absolute;
+left: 30%;
+top: 3%;
+text-align: center;
+z-index: 10;
+font-size: 1.6em;
+border-radius: 8px;
+color: black;
+}
+.alert-success {
+background-color: lightgreen;
+}
+
+.alert-warning {
+background-color: tomato;
+}
+
+/* 当 data-layer 为 1 时的样式 */
+details[data-layer="1"] > summary {
+background: rgba(230, 235, 240, .6); 
+font-weight: bold;
+
+}
+details[data-layer="1"] > summary span{
+color: black;
+}
+
+.searchReasultPanel .box{
+    position: relative;
+    backdrop-filter: blur(3px);
+    background: rgba(230, 235, 240, .4);
+    border: 1px solid rgba(255,255,255,.9);
+    border-right: 1px solid rgba(255,255,255,.5);
+    border-bottom: 0;
+    display: flex;
+    flex-direction: column; /* 设置为纵向布局 */
+    align-items: center;
+    }
+    .searchReasultPanel .box img{
+        width: 40px;
+        position: absolute;
+        top: 10px; /* 距顶部的距离 */
+        right: 10px; /* 距右侧的距离 */
+    }
+    .searchReasultPanel .box span{
+        font-weight: bold;
+        font-size: 1.2em;
+    }
+    .searchReasultPanel .box>div{
+        width: 100%;
+        text-align: center;
+    }
+   
+   
+    .searchReasultPanel .box input{
+        height: 30px;
+        margin: 15px 0;
+        background-color: rgba(255, 255, 255, 0.4);
+        border: solid 1px black;
+        width: 50%;
+        font-size: 1.2em;
+        text-indent: .5em;
+    }
+    .searchReasultPanel .box ul{
+        width: 70%;
+        text-align: center;
+     margin-top: 10px;
+     max-height: 90%;
+     overflow-y: auto; /* 添加滚动条 */
+     scrollbar-width: thin; /* 在支持的浏览器上隐藏默认的滚动条 */
+-ms-overflow-style: none;  /* 隐藏Internet Explorer和Edge浏览器的滚动条 */
+    }
+    .searchReasultPanel .box ul::-webkit-scrollbar {
+        width: 0;  /* 隐藏滚动条 */
+    }
+    
+    .searchReasultPanel .box ul::-webkit-scrollbar-thumb {
+        background-color: transparent; /* 隐藏滚动条thumb（拖动条） */
+    }
+
+  .searchReasultPanel .box ul div{
+width: 100%;
+    background-color: rgba(51, 51, 51, 0.4); 
+height: 30px;
+line-height: 30px;
+color: white;
+font-size: 1.2em;
+margin-bottom: 5px;
+  }
+
+@media screen and (max-width: 767px){
+    details  ul>div{
+    padding: 0 6px;
+    background-color: rgba(51, 51, 51, 0.7); 
+}
+.popPanel {
+width: 100%;
+height: 100%;
+}
+.popPanel .titleBox,.popPanel textarea{
+    width: 90%;
+}
+.popPanel .titleBox .copy{
+    top: 30%;
+}
+
+.popPanel  .inputBox {
+width: 96%;
+margin-top: 20px;
+}
+details[data-layer="1"] > summary {
+padding: 5px;
+
+}
+details summary {
+    padding: 0 15px;
+    text-indent: 1em;
+}
+
+.popPanel .box .closeBtn{
+    top: 0;
+    right: 5px;
+}
+.popPanel textarea {
+    height: calc(75% - 10px);
+
+}
+.searchReasultPanel .box{
+width: 100%;
+height: 100%;
+}
+.searchReasultPanel .box ul{
+    width: 90%;
+}
+.searchReasultPanel .box ul div {
+    background-color: rgba(51, 51, 51, 0.8);
+}
+.searchReasultPanel .box>div {
+    text-align: left;
+    margin-left: 40px;
+}
+.topBox{
+    right: 5px;
+    top: 0;
+    height: 50px;
+    gap: 4px;
+}
+.topBox img{
+    width: 30px;
+    height: 30px;
+}
+}
+
+@media screen and (min-width: 768px){
+details[data-layer="1"] > summary {
+padding: 0 20px;
+
+
+}
+details summary {
+    padding: 0 40px;
+    text-indent: 1em;
+}
+details  ul>div{
+    padding-left: 2em;
+    padding: 0 40px;
+}
+.searchReasultPanel .box{
+    width: 500px;
+    height: 560px;
+    top: 50%;
+    left: 50%;
+    margin-top: -290px; /* 高度的一半 */
+    margin-left: -250px; /* 宽度的一半 */
+    border-radius: 20px;
+    padding-bottom: 30px;
+    }
+ 
+}
