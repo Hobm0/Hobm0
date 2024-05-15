@@ -505,10 +505,11 @@ data.bottomNav.forEach(function(item) {
                     sessionStorage.setItem(item.text, page);
                  }
                 }
-                    var newWindow = window.open("", "_blank");  // 打开一个新的空白窗口或标签
+                    // var newWindow = window.open("", "_blank");  // 打开一个新的空白窗口或标签
                   
-                    newWindow.document.write(page);  // 在新窗口中写入新的页面内容
-              
+                    // newWindow.document.write(page);  // 在新窗口中写入新的页面内容
+              openNewwindow(page);
+
             });
         }
        
@@ -557,28 +558,7 @@ console.log(page)
     var pages=JSON.parse(localStorage.getItem("pages")) || [];
     pages.push(item.text);
     localStorage.setItem("pages",JSON.stringify(pages));
-      var jdata=JSON.parse(page)
-			console.log(typeof(jdata))
-			console.log(jdata)
-			// 打开新窗口
-			var newWindow = window.open("error.html", "_blank");
-// 监听新窗口加载完成事件
-newWindow.addEventListener("load", function() {
-	  // 解析 jdata 中的样式信息
-    var parser = new DOMParser();
-    var headContent = parser.parseFromString(jdata.head, "text/html").querySelector("head");
- // 获取新窗口的 head 和 body 元素
-    var newHead = newWindow.document.head;
-	// 将 jdata 中的 head 和 body 添加到新窗口的对应元素中
-    headContent.childNodes.forEach(function(node) {
-        newHead.appendChild(node.cloneNode(true));
-    });
-	
-newWindow.document.body.innerHTML = jdata.body
-	  var scriptElement = newWindow.document.createElement("script");
-    scriptElement.textContent = jdata.js;
-    newWindow.document.body.appendChild(scriptElement);
-});
+	openNewwindow(page);
 
   });
     link.appendChild(image);
@@ -592,6 +572,33 @@ newWindow.document.body.innerHTML = jdata.body
 
 
 return data;
+}
+
+function openNewwindow(dataString){
+var data=JSON.parse(dataString);
+// 打开新窗口
+			var newWindow = window.open("hob.html", "_blank");
+// 监听新窗口加载完成事件
+newWindow.addEventListener("load", function() {
+	  // 解析 jdata 中的样式信息
+    var parser = new DOMParser();
+    var headContent = parser.parseFromString(data.head, "text/html").querySelector("head");
+ // 获取新窗口的 head 和 body 元素
+    var newHead = newWindow.document.head;
+	// 将 jdata 中的 head 和 body 添加到新窗口的对应元素中
+    headContent.childNodes.forEach(function(node) {
+        newHead.appendChild(node.cloneNode(true));
+    });
+	
+newWindow.document.body.innerHTML = data.body
+	  var scriptElement = newWindow.document.createElement("script");
+    scriptElement.textContent = data.js;
+    newWindow.document.body.appendChild(scriptElement);
+});
+
+
+
+
 }
 
 
