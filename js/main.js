@@ -597,4 +597,5 @@ else{
 // 添加点击事件
         btn.addEventListener("click", function() {
             console.log("按钮被点击了！");
+		 window.open("error.html", "_blank");
         });
