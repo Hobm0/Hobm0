@@ -385,6 +385,10 @@ function checkLastLogin() {
 
 function Log_out(){
     var repo_input=document.querySelector('.repo_input');
+	var str1=document.querySelector('.str1').value;
+var str2=document.querySelector('.str2').value;
+var str3=document.querySelector('.str3').value;
+var str4=document.querySelector('.str4').value;
 // var token_input=document.querySelector('.token_input');
     var loginState=sessionStorage.getItem('loginState') || localStorage.getItem('loginState');
 if(loginState && loginState=="true")
@@ -399,6 +403,10 @@ if(loginState && loginState=="true")
     //     localStorage.removeItem("pages");
     //     document.getElementById("rememberPassword").checked=false;
     // }
+	str1.value=""
+	str2.value=""
+	str3.value=""
+	str4.value=""
     sessionStorage.clear();
     localStorage.clear();
     showSuccessAlert("退出成功");
