@@ -622,6 +622,7 @@ async function RefreshUIData(){
         }
         FormUI(repo,token,data);
 		localStorage.setItem("UIdata",data);
+	    showSuccessAlert("刷新成功")
 
 }
 else{
