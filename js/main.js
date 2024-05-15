@@ -486,7 +486,7 @@ data.bottomNav.forEach(function(item) {
             link.addEventListener('click',async function(event) {
                 var page=localStorage.getItem("nets");
                 if(!page){
-                    page= await getFileContentAsString(repo, token, 'pages/nets.html');
+                    page= await getFileContentAsString(repo, token, 'pages/netsPage.json');
                  var autoLoad1=   localStorage.getItem('autoLoad');
       
                  if(autoLoad1=='true'){
@@ -516,7 +516,7 @@ var functionItemContainer = document.querySelector('.functionItemContainer');
 data.functions.forEach(function(item) {
     var link = document.createElement('div');
     link.setAttribute('class', 'item');
-    link.setAttribute('page', '=' + item.text);
+    link.setAttribute('page', item.text);
   
     var image = document.createElement('img');
     image.setAttribute('src', item.img);
@@ -528,9 +528,10 @@ data.functions.forEach(function(item) {
     event.preventDefault(); // 阻止默认行为
     // 在这里添加点击事件的具体逻辑
     var page=localStorage.getItem(item.text);
+		console.log(page)
     if(!page){
-        page= await getFileContentAsString(repo, token, 'pages/'+item.text+'.html');
-    
+        page= await getFileContentAsString(repo, token, 'pages/'+item.text+'Page.json');
+console.log(page)
     
      var autoLoad1=   localStorage.getItem('autoLoad');
  
@@ -545,11 +546,28 @@ data.functions.forEach(function(item) {
     var pages=JSON.parse(localStorage.getItem("pages")) || [];
     pages.push(item.text);
     localStorage.setItem("pages",JSON.stringify(pages));
-        var newWindow = window.open("", "_blank");  // 打开一个新的空白窗口或标签
-      
-        newWindow.document.write(page);  // 在新窗口中写入新的页面内容
-  
-    
+      var jdata=JSON.parse(page)
+			console.log(typeof(jdata))
+			console.log(jdata)
+			// 打开新窗口
+			var newWindow = window.open("error.html", "_blank");
+// 监听新窗口加载完成事件
+newWindow.addEventListener("load", function() {
+	  // 解析 jdata 中的样式信息
+    var parser = new DOMParser();
+    var headContent = parser.parseFromString(jdata.head, "text/html").querySelector("head");
+ // 获取新窗口的 head 和 body 元素
+    var newHead = newWindow.document.head;
+	// 将 jdata 中的 head 和 body 添加到新窗口的对应元素中
+    headContent.childNodes.forEach(function(node) {
+        newHead.appendChild(node.cloneNode(true));
+    });
+	
+newWindow.document.body.innerHTML = jdata.body
+	  var scriptElement = newWindow.document.createElement("script");
+    scriptElement.textContent = jdata.js;
+    newWindow.document.body.appendChild(scriptElement);
+});
 
   });
     link.appendChild(image);
@@ -569,9 +587,9 @@ return data;
 async function RefreshUIData(){
     var loginState=localStorage.getItem('loginState');
     if(loginState=='true'){
-        var repo_input=document.querySelector('.repo_input');
-        var token_input=document.querySelector('.token_input');
-        var  data= await getFileContentAsString(repo_input.value, token_input.value, 'data/UI.json');
+        var repo=localStorage.getItem("repo");
+        var token=localStorage.getItem("token");
+        var  data= await getFileContentAsString(repo, token, 'data/UI.json');
  var bottomNavContainer=   document.querySelector('.bottomNavContainer');
  bottomNavContainer.innerHTML='';
     var functionItemContainer = document.querySelector('.functionItemContainer');
@@ -584,7 +602,8 @@ async function RefreshUIData(){
             localStorage.removeItem("pages");
             document.getElementById("rememberPassword").checked=false;
         }
-        FormUI(repo_input.value,token_input.value,data);
+        FormUI(repo,token,data);
+		localStorage.setItem("UIdata",data);
 
 }
 else{
@@ -592,34 +611,5 @@ else{
 }
 }
 
-// 获取按钮元素
-        var btn = document.getElementById("testBtn");
-// 添加点击事件
-        btn.addEventListener("click", function() {
-            console.log("按钮被点击了！");
-	// 打开新窗口
-			var newWindow = window.open("error.html", "_blank");
-			
-			// // 替换新页面内容
-			// newWindow.document.write(`
-			// 	<!DOCTYPE html>
-			// 	<html>
-			// 	<head>
-			// 	    <title>新页面内容</title>
-			// 	</head>
-			// 	<body>
-			// 	    <button id="fft">test</button>
 
-			// 	    <script>
-			// 	        // 获取按钮元素
-			// 	        var btn = document.getElementById("fft");
 
-			// 	        // 添加点击事件
-			// 	        btn.addEventListener("click", function() {
-			// 	            console.log("按钮被点击了！");
-			// 	        });
-			// 	    </script>
-			// 	</body>
-			// 	</html>
-			// `);
-        });
