@@ -439,7 +439,7 @@ if(loginState=='true'){
 
 
 async function getFileContentAsString(repo,token,path) {
-    const url = `https://gitee.com/api/v5/repos/HobG/${repo}/contents/${path}`;
+    const url = `https://gitee.com/api/v5/repos/Hobm/${repo}/contents/${path}`;
     try {
         const response = await fetch(url, {
             headers: {
@@ -592,60 +592,3 @@ else{
 }
 }
 
-// // 首先，你需要从window.location.href获取当前的URL
-// var currentUrl = window.location.href;
-
-// // 使用URLSearchParams来解析查询字符串
-// var urlParams = new URLSearchParams(currentUrl);
-
-// // 从查询字符串中获取'code'参数的值
-// var code = urlParams.get('code');
-
-function getRefresh(){
-    var code="DwEEANdVES9qllhMk2g1KUiHmtJEJd99qcTdaWpXjdFGs30Hp6MfN%2BZoiz4qFpIbqK4xlqXDRHsDVb4gQaAmj4AENRepgVtl8zmgWKbaxm6o7VyHsCMZAiACJ8khNZ8d%2B5EttS%2FJ9txCDGzk%2BBtcuYbWbt2HETOtelbIJQv6KIYemhhkHogUjPkbjwNrtTlNYyiqp2u57sHlj6yPoZdRiIcC55%2BLV1fpLuE6I6SFyHzKWpP8nbbPtLVPyprNo%2BDqDpL0Gc2M9q4jlQ%2B6j2MmBO9eiw%3D%3D";
-// // 注意：由于这个授权码是敏感信息，你应该确保在发送请求时使用HTTPS
-// fetch('https://hobm.gitee.io/'+code, {
-//     method: 'POST',
-//     headers: {
-//         'Content-Type': 'application/x-www-form-urlencoded',
-//     },
-//     body: 'code=' + encodeURIComponent(code)
-// })
-// .then(response => response.json())
-// .then(data => {
-//     // 处理服务器返回的访问令牌和刷新令牌
-//     console.log('Access Token:', data.access_token);
-//     console.log('Refresh Token:', data.refresh_token);
-// })
-// .catch(error => {
-//     // 处理错误
-//     console.error('Error fetching access token:', error);
-// });
-
-// 构造交换访问令牌的请求
-var tokenUrl = 'https://oauth-login.cloud.huawei.com/oauth2/v3/token';
-var clientId = '110165647';
-var redirectUri = 'https://hobm.gitee.io/';
-var clientSecret = '9a129d6669f352819d3c7159a7ebaa3b340e07c4cc2f06c3afa29b76e20f1272'; // 注意：在实际应用中，客户端不应该知道client_secret
-
-// 使用fetch API发送请求
-fetch(tokenUrl, {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-    },
-    body: `grant_type=authorization_code&code=${encodeURIComponent(code)}&redirect_uri=${encodeURIComponent(redirectUri)}&client_id=${encodeURIComponent(clientId)}&client_secret=${encodeURIComponent(clientSecret)}`
-})
-.then(response => response.json())
-.then(data => {
-    // 处理返回的访问令牌和刷新令牌
-    console.log('Access Token:', data.access_token);
-    console.log('Refresh Token:', data.refresh_token);
-})
-.catch(error => {
-    // 处理错误
-    console.error('Error fetching access token:', error);
-});
-
-}
-// getRefresh()
