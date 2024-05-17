@@ -154,7 +154,7 @@ function getPrompt(engine, content, callback) {
     var data=[];
     switch (engine) {
         case "Bing":
-            url = "http://sg1.api.bing.com/qsonhs.aspx?type=cb&cb=callback&q=" + content;
+            url = "https://sg1.api.bing.com/qsonhs.aspx?type=cb&cb=callback&q=" + content;
              // 定义全局回调函数
     window.callback = function(json) {
       json.AS.Results.forEach(function(result) {
@@ -166,7 +166,7 @@ function getPrompt(engine, content, callback) {
     };
             break;
         case "Baidu":
-            url = "http://suggestion.baidu.com/su?wd=" + content + "&cb=baidu.sug";
+            url = "https://suggestion.baidu.com/su?wd=" + content + "&cb=baidu.sug";
                //定义回调函数
       window.baidu = {
           sug: function(json) {
