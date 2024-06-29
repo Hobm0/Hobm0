@@ -447,7 +447,7 @@ if(loginState=='true'){
 
 
 async function getFileContentAsString(repo,token,path) {
-    const url = `https://gitee.com/api/v5/repos/Hobm/${repo}/contents/${path}`;
+    const url = `https://gitee.com/api/v5/repos/lifespark/${repo}/contents/${path}`;
     try {
         const response = await fetch(url, {
             headers: {
